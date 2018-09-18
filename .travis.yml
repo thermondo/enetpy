@@ -1,0 +1,17 @@
+language: python
+sudo: required
+dist: xenial
+python: 3.7
+cache: pip
+install: pip install -U codecov
+script: coverage run --source=enet setup.py test
+after_success: codecov
+deploy:
+  provider: pypi
+  user: codingjoe
+  password:
+    secure: xE8witvPZ+vZ8Z4cXdD2RfNRv4ZFrKpNZohuIH5LyGrUSzm9+M1hLmGokFA7e0a8nZ8C1reRov5Y73kFGf3nk7jiiSf4y9AU4IbrLxGwh3YXf/VRSPJnZ0VFKXNwOEzJWn/exBaU3a2CId2K/uGgC/h2AoUyiae+VTMoVf/zoSbrBGQD4104Q36iGr0TKQG/YzI5CkcDAgOQ3W/uEWhj5Br+PwLaxLJdmLi2B3VQ0HM+fKVndYKeTsZulBcrT1Z4VPHFrHEI7FsoBoX/4DkWaWw4NMNlVNvpAcC/6g5hM0Il6feZyCwjrQ1xKiSk+3ZVUVS6vV0DRtOCQ8wX/hXBXvWjqCHoC3VZU8ZBX9ekzEm827+vHZKLK9xzmiJQB//6dPccjSXK5EZjUcm0MLOviWIoG2Ih46feLNdbUc4M3MxGXHR9ivzNCU+UEuRLFJxryMYfMNqa/DBbPNJxRDof7URQ0lCuKLdBzUXj9TvXD1mUA4tyUoGpYo59XcRVnsYVFWhYH7j89aS8VrDhr3BNdHlGM4XRDQjNZCzhMP2AkT4oFcFte1rEbIR08q0NePJ/1bLjQL9y8N+0H3jYy2yVl9Jr50MSCNM0mbOZutWK88rg1a3rU2V5xD+SfS4D4BZ1Esr/XDUV0akeIBZ6SnwVJux1TkqSEBA/ae3mMTpsMzg=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: Thermondo/python-enet
