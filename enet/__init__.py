@@ -18,7 +18,7 @@ __all__ = ('api',)
 
 def get_enet_api(wsdl_url: str = WSDL_URL, auth_token: str = AUTH_TOKEN) -> BaseAPIWrapper:
     if TESTING_SUB:
-        from .test import TestAPIWrapper as APIWrapper
+        from .test import FakeAPIWrapper as APIWrapper
     else:
         from .live import LiveAPIWrapper as APIWrapper
 

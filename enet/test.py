@@ -4,7 +4,11 @@ from . import types
 from zeep.exceptions import Fault
 
 
-class TestAPIWrapper(BaseAPIWrapper):
+class FakeAPIWrapper(BaseAPIWrapper):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._storage = {}
 
     def get_gas_grid_operator_for_address(
             self, zip_code, city, street, house_number, _ignore_multiple=True
@@ -23,7 +27,3 @@ class TestAPIWrapper(BaseAPIWrapper):
             fax_number='',
             gas_type='H-Gas'
         )
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._storage = {}

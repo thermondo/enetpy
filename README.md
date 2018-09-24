@@ -7,7 +7,7 @@ Python wrapper for the ene't Marktpartner API
 Install the package:
 
 ```bash
-pip install enet
+pip install enetpy
 ```
 
 Make sure to set the authentication token in your production environment.
