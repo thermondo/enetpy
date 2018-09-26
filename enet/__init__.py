@@ -9,9 +9,6 @@ WSDL_URL = os.getenv(
 AUTH_TOKEN = os.getenv('ENET_AUTH_TOKEN')
 TESTING_SUB = os.getenv('ENET_TESTING_STUB', '0') in ['1', 'true', 'True']
 
-if not TESTING_SUB and AUTH_TOKEN is None:
-    raise EnvironmentError("The environment variable \"ENET_AUTH_TOKEN\" is not set")
-
 
 __all__ = ('api',)
 
